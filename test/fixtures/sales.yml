@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blend: MyString
+  total: 1
+  date_sale: 2020-11-24 16:03:51
+
+two:
+  blend: MyString
+  total: 1
+  date_sale: 2020-11-24 16:03:51
