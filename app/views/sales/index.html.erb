@@ -1,0 +1,90 @@
+<h3 class="text-center">Ventas desde 01/01/2017 hasta 24/11/2020</h3>
+<br> <br><br>
+<h4 class="text-center">Ventas mensuales de los ultimos 12 meses</h4>
+<div class="container">
+    <%= column_chart @month_sales %>
+</div>
+<br><br>
+<h4 class="text-center">Cantidad de ventas mensuales de los ultimos 12 meses</h4>
+<div class="container">
+    <%= column_chart @quantity_sales %>
+</div>
+<br><br>
+<h4 class="text-center">Ventas promedio mensuales de los ultimos 12 meses</h4>
+<div class="container">
+    <%= column_chart @avg_sales %>
+</div>
+<br><br>
+<h4 class="text-center">Ventas totales por origen de cafe de los ultimos 12 meses</h4>
+<div class="container">
+    <%= pie_chart @coffee_origin, xmin: "2019-01-01", xmax: "2020-11-01" %>
+</div>
+<br><br>
+<h4 class="text-center">Ventas totales por origen de cafe de los ultimos 6 meses</h4>
+<div class="container">
+    <%= pie_chart @coffee_origin2, xmin: "2019-01-01", xmax: "2020-11-01" %>
+</div>
+<br><br>
+
+
+
+
+<h4 class="text-center">Ventas totales por origen de cafe de los ultimos 3 meses</h4>
+<div class="container">
+    <%= pie_chart @coffee_blend, xmin: "2019-01-01", xmax: "2020-11-01" %>
+</div>
+<br><br>
+
+<h4 class="text-center">Ventas totales por tipo de cafe de los ultimos 3 meses</h4>
+<div class="container">
+    <%= pie_chart @coffee_blend2, xmin: "2019-01-01", xmax: "2020-11-01" %>
+</div>
+<br><br>
+
+<h4 class="text-center">Ventas totales por tipo de cafe de los ultimos 3 meses</h4>
+<div class="container">
+    <%= pie_chart @coffee_blend3, xmin: "2019-01-01", xmax: "2020-11-01" %>
+</div>
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <table class="container">
+        <thead>
+            <th>Tipo de Cafe</th>
+            <th>Origen</th>
+            <th>Fecha</th>
+            <th>Total</th>
+        </thead>
+
+        <tbody>
+            <% @sales.each do |sale| %>
+                <tr>
+                    <td><%= sale.blend %></td>
+                    <td><%= sale.origin %></td>
+                    <td><%= sale.date_sale.strftime('%d/%m/%Y') %></td>
+                    <td><%= number_to_currency(sale.total, unit: '$', precision: 0) %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
